@@ -1,6 +1,7 @@
 // Require Package Dependencies
 const express = require('express'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    path = require('path');
 
 // Setup Express App
 const app = express();
@@ -14,10 +15,11 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
 // Require Routing files
-// require("./app/routing/apiRoutes.js")(app);
-// require("./app/routing/htmlRoutes.js")(app);
+require('./app/routing/apiRoutes.js')(app);
+require('./app/routing/htmlRoutes.js')(app);
 
 // Start server listening
 app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log(`App listening on PORT ${PORT}`);
 });
+
