@@ -1,36 +1,46 @@
-// Require Package Dependencies
+// Require Dependencies
 let friendArray = require('../data/friends');
 
-// Setup API routing
+// Declare module exports
 module.exports = function (app) {
-
+    // Create an API GET route to display the JSON friendIndex of all friends
     app.get('/api/friends', function (req, res) {
         res.json(friendArray);
     });
+
+    // Create an API POST route to receive incoming survey data and compare
+    //  new users survey scores to that of every other friend and display the
+    //  best match
     app.post('/api/friends', function (req, res) {
-
-        // console.log(req.body.scores);
+        // set variable to hold latest survey scores
         let newFriendScores = req.body.scores;
-
-        for (i in friendArray){
-            // console.log(friendArray[object].scores);
-
-            for (j in friendArray[i].scores){
-                Math.abs(friendArray[i].scores[j] - newFriendScores[j]);
+        // set a variable just higher than the highest possible difference amount
+        let lowestDiffTotal = 41;
+        // loop through all friends in the friendArray
+        // create variable to hold the survey scores from latest survey
+        for (friendIndex in friendArray) {
+            // zero out a variable which will tally the differences in survey scores
+            let diffTotal = 0;
+            // loop through each score within the friendIndex summing up the
+            //  differences in score for each category
+            for (scoreIndex in friendArray[friendIndex].scores) {
+                diffTotal += Math.abs(friendArray[friendIndex].scores[scoreIndex] - newFriendScores[scoreIndex]);
             }
+            // if current difference to lowest yet - if lower then replace
+            //  when complete report closest match
+            if (diffTotal < lowestDiffTotal){
+                lowestDiffTotal = diffTotal;
+                closestMatch = friendArray[friendIndex];
+            }
+            // console.log(`Difference = ${diffTotal}`);
         }
-
-
-
-
-        // create a total variable where we will sum the users attribute scores
-        let newFriendtotal = 0;
-        // add all the attribute scores from the data being passed in
-        for (var i = 0; i < req.body.scores.length; i++) {
-            newFriendtotal += parseInt(req.body.scores[i]);
-        }
-        console.log(newFriendtotal);
+        // console.log(`LowestDiff is: ${lowestDiffTotal}`);
+        res.json(closestMatch);
+        // add latest user to the friends listing
         friendArray.push(req.body);
-        res.json(true);
+        // res.json(true);
     })
 };
+// Setup API routing
+
+// Require Package Dependencies

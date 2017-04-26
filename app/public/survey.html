@@ -229,6 +229,9 @@
 
         $.post("/api/friends", newFriend, function(data) {
             if(data){
+
+                alert(data.name);
+                alert(data.photo);
                 alert('You\'ve been added to the list');
             }
         });
