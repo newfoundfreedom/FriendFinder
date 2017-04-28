@@ -4,6 +4,10 @@
   "main": "server.js",
   "repository": "https://github.com/newfoundfreedom/FriendFinder.git",
   "author": "Joel Roberts <newfoundfreedom@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.1",
