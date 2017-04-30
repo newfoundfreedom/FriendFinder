@@ -1,221 +1,250 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Friend Finder Survey</title>
+    <title>Friend Finder</title>
 
-    <!--Bootstrap CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!--Local StyleSheet-->
-    <!--<link rel="stylesheet" href="assets/css/style.css">-->
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <!--Materialize JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <!--Google Icon Fong-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- FontAwesome -->
+    <script src="https://use.fontawesome.com/8eb4ed0827.js"></script>
+    <!--Local CSS-->
     <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+
         footer p {
             display: inline;
         }
 
-        h3 {
-            font-weight: bold;
+        .card {
+            margin: 2rem;
+            padding: 1rem;
         }
 
-        label {
-            font-size: 18px;
-            font-weight: normal;
+        #userPhoto {
+            margin-bottom: 4rem;
+        }
+
+        #matchImg {
+            width: 100%;
+        }
+
+        #submit {
+            margin-top: 3rem;
+        }
+
+        .result-text {
+            display: inline;
         }
     </style>
 
-
 </head>
-<body>
-
-<div class="container">
-    <h2>Survey Questions</h2>
-    <hr>
-    <h3>About You</h3>
-    <form>
-        <div class="form-group">
-            <label for="userName">Name (Required)</label>
-            <input type="text" class="form-control" id="userName" placeholder="John Doe">
-        </div>
-        <div class="form-group">
-            <label for="userPhoto">Link to Photo Image (Required)</label>
-            <input type="text" class="form-control" id="userPhoto">
-        </div>
-        <hr>
-
-        <div class="form-group">
-            <h3>Question 1</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q1">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disagree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-
-
-        <div class="form-group">
-            <h3>Question 2</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q2">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disagree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>Question 3</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q3">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disagree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>Question 4</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q4">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disagree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>Question 5</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q5">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disagree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>Question 6</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q6">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disazgree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>Question 7</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q7">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disagree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>Question 8</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q8">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disagree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>Question 9</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q9">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disagree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <h3>Question 10</h3>
-            <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
-            <select id="q10">
-                <option selected="true" disabled="disabled">Select an Option</option>
-                <option value="1">1 (Strongly Disagree)&nbsp;&nbsp;</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5 (Strongly Agree)&nbsp;&nbsp;</option>
-            </select>
-        </div>
-        <br>
-        <br>
-        <button type="submit" id="submit" class="btn btn-primary btn-lg">Submit</button>
-    </form>
-
-</div>
-<br>
-<div class="container">
-    <footer>
-        <p><a href="/api/friends">API Friends List</a></p>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        <p><a href="https://github.com/newfoundfreedom/FriendFinder">Git Hub Repo</a></p>
-    </footer>
-</div>
-
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <h1 id="matchName"></h1>
-            <!--<div class="modal -body text-center" id="matchName"></div>-->
-            <div class="modal-body text-center">
-                <img id="matchImg" src="" alt=""  />
+<body class="cyan lighten-2">
+<main class="valign-wrapper">
+    <div class="row">
+        <div class="col m12 l10 offset-l1 xl8 offset-xl2">
+            <div class="card z-depth-5 center-align">
+                <div class="card-content">
+                    <h1><i class="fa fa-facebook-square" aria-hidden="true"></i><strong> Friend Finder
+                        &nbsp;</strong><em>Survey</em></h1>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            <div class="card z-depth-5">
+                <div class="card-content">
+
+                    <h5><strong>About You</strong></h5>
+
+                    <div class="input-field col s12">
+                        <input id="userName" type="text" class="validate">
+                        <label for="userName">Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="userPhoto" type="text" class="validate">
+                        <label for="userPhoto">Link to Photo Image</label>
+                    </div>
+                    <br>
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 1</strong> - What do you consider to be your best quality?</h5>
+                        <select id="q1">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">Humor</option>
+                            <option value="2">Talent</option>
+                            <option value="3">Optimism</option>
+                            <option value="4">Thoughtfulness</option>
+                            <option value="5">Empathy</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 2</strong> - In the mornings, you</h5>
+                        <select id="q2">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">Must. Drink. Coffee.</option>
+                            <option value="2">Never miss breakfast</option>
+                            <option value="3">Don't remember what day it is</option>
+                            <option value="4">Just want to rest another minute</option>
+                            <option value="5">Are talkative</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 3</strong> - Pick a mode of Transportation</h5>
+                        <select id="q3">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">Car</option>
+                            <option value="2">Bike</option>
+                            <option value="3">Spaceship</option>
+                            <option value="4">Plane</option>
+                            <option value="5">Train</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 4</strong> - No party is complete without</h5>
+                        <select id="q4">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">Party hats</option>
+                            <option value="2">Balloons</option>
+                            <option value="3">Snacks</option>
+                            <option value="4">Music</option>
+                            <option value="5">Games</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 5</strong> - Your favorite food is</h5>
+                        <select id="q5">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">Sushi</option>
+                            <option value="2">Pizza</option>
+                            <option value="3">Leafy greans</option>
+                            <option value="4">Anything you cook</option>
+                            <option value="5">Fast Food</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 6</strong> - When you write in your diary its usually because you're
+                            feeling
+                        </h5>
+                        <select id="q6">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">Excited</option>
+                            <option value="2">Worried</option>
+                            <option value="3">Angry</option>
+                            <option value="4">Sad</option>
+                            <option value="5">Frustrated</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 7</strong> - Pick a potato chip flavor</h5>
+                        <select id="q7">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">Sour cream and onion</option>
+                            <option value="2">Salt and vinegar</option>
+                            <option value="3">Barbeque</option>
+                            <option value="4">Plain</option>
+                            <option value="5">Dill Pickle</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 8</strong> - If you were a circus performer, you would be a</h5>
+                        <select id="q8">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">Clown</option>
+                            <option value="2">Ringmaster</option>
+                            <option value="3">Tightrope walker</option>
+                            <option value="4">Human cannonball</option>
+                            <option value="5">Lion Tamer</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 9</strong> - You would celebrate this holiday</h5>
+                        <select id="q9">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">National Unicorn Day</option>
+                            <option value="2">Squirrel Appreciation Day</option>
+                            <option value="3">Act Like a T-Rex Day</option>
+                            <option value="4">National Butterfly Day</option>
+                            <option value="5">Groundhog Day</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12 valid">
+                        <h5><strong>Question 10</strong> - Your favorite summer activity is</h5>
+                        <select id="q10" class="valid">
+                            <option selected="true" disabled="disabled">Select an Option</option>
+                            <option value="1">Swimming</option>
+                            <option value="2">Taking a road trip</option>
+                            <option value="3">Eating outside</option>
+                            <option value="4">Playing Sports</option>
+                            <option value="5">Staying indoors</option>
+                        </select>
+                    </div>
+                    <div class=" right-align">
+                        <a href="/survey" id=submit
+                           class="waves-effect waves-light btn-large pink accent-2">
+                            <strong>SUBMIT and find your best match</strong></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</main>
+
+
+<footer class="page-footer cyan darken-1">
+    <div class="container">
+        <div class="row white-text">
+            <a href="/api/friends" class="white-text">API Friend List</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="https://github.com/newfoundfreedom/FriendFinder" class="white-text">Git Hub Repo</a>
+        </div>
+    </div>
+</footer>
+
+
+<!-- Modal Structure -->
+<div id="myModal" class="modal">
+    <div class="modal-content center-align">
+        <h4 class="result-text">Your best match is: </h4>
+        <h2 class="result-text" id="matchName"></h2>
+        <img id="matchImg" src="" alt=""/>
+        <!--<div class="modal-body">-->
+
+        <!--</div>-->
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
 </div>
-<!--jQuery-->
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-        crossorigin="anonymous"></script>
-<!-- Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-<!--Local JS-->
-<!--<script src="assets/javascript/script.js"></script>-->
+
+
+<!--Local Javascript-->
 <script type="text/javascript">
+
+    $(document).ready(function () {
+        $('select').material_select();
+        $('#myModal').modal({
+            dismissible: true, // Modal can be dismissed by clicking outside of the modal
+            opacity: .5, // Opacity of modal background
+            inDuration: 300, // Transition in duration
+            outDuration: 200, // Transition out duration
+        });
+    });
 
     // Capture the form inputs
     $("#submit").on("click", function (event) {
@@ -240,16 +269,33 @@
 
         console.log(newFriend);
 
-        $.post("/api/friends", newFriend, function(data) {
-            if(data){
+        $.post("/api/friends", newFriend, function (data) {
+            if (data) {
                 $('#matchName').html(data.name);
                 $('#matchImg').attr('src', data.photo);
-                $('#myModal').modal('show');
+                $('#myModal').modal('open');
             }
+            clearSurvey();
         });
-    })
+    });
 
+    let clearSurvey = function () {
+        $("#userName").val();
+        $("#userPhoto").val();
+        $("#q1").val();
+        $("#q2").val();
+        $("#q3").val();
+        $("#q4").val();
+        $("#q5").val();
+        $("#q6").val();
+        $("#q7").val();
+        $("#q8").val();
+        $("#q9").val();
+        $("#q10").val();
+    }
 </script>
+
 
 </body>
 </html>
+
